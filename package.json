@@ -1,36 +1,37 @@
 {
-  "name": "movade",
+  "name": "fineverse",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "qa": "node scripts/qa-screenshots.mjs",
+    "qa:viewports": "node scripts/qa-viewports.mjs",
+    "lighthouse": "node scripts/lighthouse.mjs"
   },
   "dependencies": {
-    "@react-three/drei": "^9.122.0",
-    "@react-three/fiber": "^8.18.0",
-    "clsx": "^2.1.1",
-    "dotted-map": "^3.1.0",
-    "framer-motion": "^12.43.0",
-    "gsap": "^3.15.0",
-    "lenis": "^1.3.25",
-    "next": "14.2.35",
-    "next-themes": "^0.4.6",
-    "react": "^18",
-    "react-dom": "^18",
-    "three": "^0.160.0"
+    "@gsap/react": "2.1.2",
+    "gsap": "3.15.0",
+    "lenis": "1.3.27",
+    "lucide-react": "1.66.0",
+    "motion": "14.9.0",
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zustand": "5.0.16"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.35",
-    "playwright": "^1.62.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "@playwright/test": "1.64.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "20.19.43",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.3",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3"
   }
 }

@@ -1,43 +1,69 @@
-import type { Metadata } from "next";
-import { Syne, Space_Grotesk } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
+import type { NavCategory } from "@/components/layout/nav-types";
+import { AppProviders } from "@/components/providers/app-providers";
+import { LazyOverlays } from "@/components/providers/lazy-overlays";
+import { Toaster } from "@/components/ui/toaster";
+import { formatPrice, getCollections, getPolicy } from "@/lib/commerce";
+import { site } from "@/lib/site";
+import { archivo } from "./fonts";
 import "./globals.css";
-import SmoothScrollProvider from "@/lib/lenis-provider";
-import { ToastProvider } from "@/components/ui/toast";
-import Preloader from "@/components/preloader";
-
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["300", "400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
-  title: "Movade — Explore the World, One Journey at a Time",
-  description:
-    "Our travel agency offers personalized and hassle-free travel experiences, tailored to meet your unique preferences and needs.",
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name}: ${site.tagline.replace(/\.$/, "")}`,
+    template: `%s · ${site.name}`,
+  },
+  description: site.description,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_IN",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: "#f3e9de",
+  width: "device-width",
+  initialScale: 1,
+};
+
+function navCategories(): NavCategory[] {
+  return getCollections().map((c) => {
+    const image = c.featured.colours[0]!.images[0];
+    return {
+      handle: c.handle,
+      title: c.title,
+      href: c.href,
+      types: c.types.map((t) => ({ title: t.title, href: t.href })),
+      featured: {
+        title: c.featured.title,
+        href: c.featured.href,
+        price: formatPrice(c.featured.priceFrom),
+        image,
+      },
+    };
+  });
+}
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  const policy = getPolicy();
+  const trustLine = `Cash on delivery · ${policy.returnDays}-day returns · Free delivery over ${formatPrice(policy.freeShippingThreshold)}`;
+
   return (
-    <html lang="en">
-      <body
-        className={`${syne.variable} ${spaceGrotesk.variable} font-body antialiased bg-bg-primary text-text-primary`}
-      >
-        <ToastProvider>
-          <Preloader>
-            <SmoothScrollProvider>{children}</SmoothScrollProvider>
-          </Preloader>
-        </ToastProvider>
+    // The home page's intro script sets data-intro on <html> before hydration.
+    <html lang="en-IN" className={archivo.variable} suppressHydrationWarning>
+      <body>
+        <AppProviders>
+          <SiteHeader categories={navCategories()} trustLine={trustLine} />
+          <main id="main">{children}</main>
+          <SiteFooter />
+          <LazyOverlays />
+          <Toaster />
+        </AppProviders>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 # Fineverse: Design Plan (Phase 0)
 
-Status: **waiting for approval.** No code has been written.
+Status: **approved 2026-10-31.** D1–D3 resolved as recommended, with layouts following the brief (see the end of `BUILD_BRIEF.md`). Scope: front-end UI only, on mock data. Values changed during Phase 1 are marked *(updated)*.
 
 ---
 
@@ -107,11 +107,14 @@ Text opacity steps instead of extra greys: `basalt/100` primary, `basalt/70` sec
 
 | Role | Setting |
 |---|---|
-| Wordmark (hero, footer, 404) | wght 900, wdth ~88, tracking −0.045em, line-height 0.8 |
-| Display headlines | wght 800, wdth 92, tracking −0.03em |
-| Category index names | wght 900, wdth 75 (condensed, so "Electronics" fits edge to edge on a 360 px phone) |
+| Wordmark (hero, footer, 404) | wght 900, wdth 70, tracking −0.04em *(updated: chosen against the mockup on `/styleguide`; sized from the measured width so it spans 95% of the screen)* |
+| Display headlines | wght 800, wdth 86, tracking −0.03em |
+| Section headings | wght 700, wdth 92 |
+| Category index names | wght 900, wdth 70 (condensed, so "Electronics" fits edge to edge on a 360 px phone) |
 | UI, body | wght 400 / 500, wdth 100 |
 | Prices | wght 600, `font-variant-numeric: tabular-nums` so totals don't jitter when they update |
+
+*(updated)* Shipped as one self-hosted 61 KB variable subset (weight 400–900, width 62–100, Latin + ₹), not from Google's CDN.
 
 **Why Archivo:** the mockup's wordmark is a Helvetica-Now-Black-style heavy grotesk. Archivo at 900 has the same flat terminals and big x-height. Its **width axis** gives the "condensed-ish" giant type and the plain body text from one file. Not Inter, Poppins or Montserrat. If the client later licenses Neue Haas Grotesk Display or Helvetica Now, it's a one-line swap in `app/fonts.ts`.
 
@@ -485,7 +488,7 @@ Every row has to earn its place. Anything not listed here doesn't move. Easing n
 
 **Lenis + GSAP:** the reference adds an anonymous function to `gsap.ticker` but removes `lenis.raf`, so **the ticker callback leaks** on unmount. Fineverse keeps a named callback, sets `autoRaf: false` (one loop), calls `ScrollTrigger.refresh()` after `document.fonts.ready` and hero image decode, and on route change kills all triggers via `gsap.context().revert()` and scrolls to top *before* new pins are created.
 
-**Commerce layer:** `lib/commerce/types.ts` (Product, Variant, Money in paise as integers, Cart, Line), `lib/commerce/provider.ts` (the interface), `lib/commerce/adapters/mock.ts`. A Shopify swap means adding `adapters/shopify.ts` and changing one import in `lib/commerce/index.ts`. Prices formatted only through `formatINR()` (`Intl.NumberFormat('en-IN')` → ₹12,499).
+**Data layer** *(updated for the UI-only scope)*: mock data in `data/`, read only through small functions in `lib/commerce/catalog.ts` (`getProducts`, `getProduct`, `getCollections`, `getKit`…). Prices are whole rupees, formatted only through `formatPrice()` (`Intl.NumberFormat('en-IN')` → ₹12,499). The cart is a Zustand store of variant ids and quantities in localStorage; prices are always looked up from the catalogue. No adapter or server layer: a real store backend can replace `catalog.ts` later.
 
 **QA:** Playwright script captures 390 and 1440 at hero progress 0 / 0.3 / 0.6 / 1.0 each phase, by setting scroll position against the pin's start and end, not by sleeping.
 
