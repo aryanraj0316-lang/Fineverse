@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { buttonClasses } from "@/components/ui/button";
-import { formatPrice, getKit } from "@/lib/commerce";
+import { formatPrice, getKit, getProducts } from "@/lib/commerce";
 
 export const metadata: Metadata = {
   title: "About",
@@ -20,8 +20,8 @@ export default function AboutPage() {
         <div className="max-w-3xl">
           <h1 className="type-display text-display">Everything, in its place.</h1>
           <p className="mt-4 max-w-[46ch] text-body-lg">
-            Fineverse makes a small set of things you carry every day: a watch, earbuds, sunglasses, an overshirt and a power bank. They are
-            designed together, so they look right together and work together.
+            The clothes you reach for. The sound you get lost in. The pieces that make a space your own. Fineverse brings together
+            everyday essentials through a shared eye for shape, texture and useful detail.
           </p>
         </div>
       </section>
@@ -31,12 +31,12 @@ export default function AboutPage() {
           <section className="lg:col-span-5">
             <h2 className="type-heading text-h2">Fewer things, made properly</h2>
             <p className="mt-4 text-body-lg text-basalt/80">
-              We make eighteen products, not eighteen hundred. That lets us choose materials one at a time: sapphire glass on the watch,
+              Explore {getProducts().length} pieces across clothing, electronics, wearables, bags, footwear and home. Start with the details: sapphire glass on the watch,
               380 gsm brushed cotton for the overshirt, a textured shell on the power bank so it doesn&rsquo;t show fingerprints.
             </p>
           </section>
           <div className="relative overflow-hidden rounded-surface lg:col-span-6 lg:col-start-7">
-            <Image src="/lifestyle/still-life-terrace.webp" alt="The Everyday Kit resting on the terrace in late-afternoon light" width={1600} height={1000} sizes="(min-width: 64rem) 50vw, 100vw" className="h-auto w-full" />
+            <Image src="/home/products-v2/terrace.webp" alt="Everyday essentials arranged on a sunlit limestone terrace" width={1586} height={992} sizes="(min-width: 64rem) 50vw, 100vw" className="h-auto w-full" />
           </div>
         </div>
 

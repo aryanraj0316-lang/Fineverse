@@ -1,0 +1,24 @@
+{
+  "mode": "built-in image_gen",
+  "products": [
+    {
+      "handle": "fold-desk-lamp",
+      "prompt": "Use case: product-mockup. New original Fineverse product design: a sculptural compact folding desk lamp in matte warm sand powder-coated aluminium, slim rectangular light bar with softly rounded ends, one elegant articulated flat arm on a low circular base, subtle integrated warm LED diffuser under bar, a tiny flush touch control on base. Minimal contemporary industrial design, realistic joints and proportions, premium understated studio product photography. One complete lamp at a three-quarter front view, warm beige seamless background #f5f0e9, soft natural studio light, gentle small contact shadow, generous space around product, no logos, no text, no props, no watermark. Square composition, high resolution, precise tactile material detail.",
+      "path": "public/products/fold-desk-lamp/studio.webp"
+    },
+    {
+      "handle": "pebble-speaker",
+      "prompt": "Use case: product-mockup. New original Fineverse product design: a compact pebble-shaped portable speaker with rounded oval capsule silhouette, warm grey tightly woven acoustic textile front, matte olive silicone back shell, three subtle physical buttons along top edge, small sand braided carry loop on one side. No screens or visible logos. Refined minimalist product design, precise fabric weave and soft-touch texture, premium realistic studio photography, three-quarter front view showing front and side, entire product in frame with generous padding. Warm beige seamless background #f5f0e9 and small soft contact shadow, warm directional studio lighting, no extra props, no text, no watermark. Square composition high resolution.",
+      "path": "public/products/pebble-speaker/studio.webp"
+    },
+    {
+      "handle": "folio-tech-pouch",
+      "prompt": "Use case: product-mockup. New original Fineverse product design: a compact zippered tech organizer pouch in warm cognac brown finely grained leather, softly rectangular folio silhouette, rounded corners, subtle tonal stitching, dark bronze double zip running around three sides, small side grab loop, no logos. Photograph the pouch partly open to show neatly divided taupe microsuede organizer compartments, empty interior, no electronics or accessories inside. Premium understated design and tactile realistic material detail. Three-quarter front view, entire pouch with generous margins, warm beige seamless background #f5f0e9, soft natural studio light with small contact shadow, no text, no watermark. Square high resolution commercial photography.",
+      "path": "public/products/folio-tech-pouch/studio.webp"
+    }
+  ],
+  "editorial": {
+    "prompt": "Use case: compositing. Create a new high-end editorial product still-life photograph for a minimalist ecommerce brand manifesto. PORTRAIT 4:5 composition, at least 1200px tall. Input reference 1 is a sand aluminium folding desk lamp with a slender light bar and circular base. Input 2 is an olive and warm grey pebble-shaped woven speaker with a braided loop. Input 3 is a cognac grained leather zippered tech organizer pouch with taupe compartments. Faithfully preserve these THREE new product designs; show exactly these products, no additional merchandise. Arrange them beautifully in a refined sunlit modern interior: warm pale limestone desk and sculptural travertine backdrop, softly curving wall, gentle natural shadows from an unseen window. Tall folding lamp to the left/back with whole light bar and base visible, compact speaker at front right, partly open cognac pouch lower front left. Every product fully inside image with generous margins so it works at both portrait and landscape crops; arrange in central 70 percent. Realistic grounded products and contact shadows, meticulous material texture, warm ivory, sand, olive and cognac palette, calm aesthetic and real magazine photography. Leave top 15 percent calm for a tiny website label added separately. No text, no logos, no floating products, no clothes, no watches, no earbuds, no sunglasses, no watermark. This is a complete new image, not the old terrace scene.",
+    "path": "public/home/manifesto/studio-collection.webp"
+  }
+}

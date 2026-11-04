@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { SlidersHorizontal } from "lucide-react";
 import { Dialog } from "@/components/ui/dialog";
@@ -39,12 +40,14 @@ export function ShopView({
   products,
   groups,
   groupParam,
+  audience,
 }: {
   title: string;
   intro: string;
   products: Product[];
   groups: ShopGroup[];
   groupParam: "type" | "category";
+  audience?: "men" | "women";
 }) {
   const [params, setParams] = useUrlParams();
   const [sheet, setSheet] = useState(false);
@@ -142,6 +145,12 @@ export function ShopView({
         <h1 className="type-display text-display">{title}</h1>
         <p className="mt-3 text-body-lg text-basalt/75">{intro}</p>
       </header>
+
+      <nav aria-label="Shop edits" className="mt-6 flex flex-wrap gap-3">
+        {[{ href: "/shop", label: "Shop all", value: undefined }, { href: "/shop/men", label: "Men", value: "men" }, { href: "/shop/women", label: "Women", value: "women" }].map((edit) => (
+          <Link key={edit.href} href={edit.href} aria-current={edit.value === audience && groupParam === "category" ? "page" : undefined} className={cx("rounded-full border px-5 py-2.5 text-small font-medium transition-colors", edit.value === audience && groupParam === "category" ? "border-cobalt bg-cobalt text-chalk" : "border-basalt/20 hover:border-basalt")}>{edit.label}</Link>
+        ))}
+      </nav>
 
       <div className="mt-8 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none]" role="group" aria-label={groupParam === "type" ? "Product type" : "Category"}>
         {[{ value: "", label: "All" }, ...groups].map((g) => {

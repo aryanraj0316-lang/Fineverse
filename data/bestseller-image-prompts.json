@@ -1,0 +1,35 @@
+{
+  "mode": "built-in image_gen",
+  "jobs": [
+    {
+      "handle": "roam-backpack",
+      "prompt": "Use case: product-mockup. Create a premium photoreal transparent cutout of the SAME graphite Roam Backpack in the reference: rounded top, recycled woven nylon, double zipper, rectangular zipped front pocket, side pockets and black padded shoulder straps. Fresh three-quarter frontal-right view, upright, realistic textile weave, premium detailed zippers, soft warm studio light. Entire bag with generous padding, no cast shadow, no floor, no props, no new logo. Truly transparent alpha background with clean edges, no colored rectangle or glow.",
+      "reference": "C:/Users/LENOVO/Desktop/travel-agency/public/products/roam-backpack/generated/graphite/0.webp",
+      "output": "/home/bestsellers-v3/roam-backpack.webp"
+    },
+    {
+      "handle": "pace-sneaker",
+      "prompt": "Use case: product-mockup. Create a premium photoreal transparent cutout of the SAME chalk leather Pace Sneaker in the reference: white low-top, cream rubber cupsole, white cotton laces, minimal unbranded stitched panels. Fresh three-quarter side view, toe pointing left, entire SINGLE sneaker visible with clear padding, realistic leather grain and stitching, soft warm studio lighting. No floor, cast shadow, props or new logos. Truly transparent alpha background, crisp clean edges, no rectangle or glow.",
+      "reference": "C:/Users/LENOVO/Desktop/travel-agency/public/products/pace-sneaker/generated/chalk/0.webp",
+      "output": "/home/bestsellers-v3/pace-sneaker.webp"
+    },
+    {
+      "handle": "cove-speaker",
+      "prompt": "Use case: product-mockup. Premium photoreal transparent cutout of the SAME compact basalt Cove Speaker from the reference. Rounded rectangular speaker, charcoal woven fabric grille, rubberized dark frame, small top buttons and braided wrist loop on right. Three-quarter frontal-left view, upright. Highly realistic woven fibers, precise top controls, gentle studio softbox light. Whole product with padding, no floor, props, cast shadow, logos or text. Fully transparent alpha background, clean edges, no backdrop or glow.",
+      "reference": "C:/Users/LENOVO/Desktop/travel-agency/public/products/cove-speaker/generated/basalt/0.webp",
+      "output": "/home/bestsellers-v3/cove-speaker.webp"
+    },
+    {
+      "handle": "chrono-watch",
+      "prompt": "Use case: product-mockup. Premium photoreal transparent cutout of the SAME silver Chrono Watch from reference: round brushed steel chronograph case, ivory dial with three subdials, slim hour markers, crown and two pushers, dark brown leather strap with tonal stitching. Upright three-quarter frontal view, strap looped behind, detailed realistic steel and leather, gentle warm studio softbox lighting. Entire watch with generous padding. Fully transparent alpha background. No floor, props, cast shadow, new branding or text, rectangle or glow.",
+      "reference": "C:/Users/LENOVO/Desktop/travel-agency/public/products/chrono-watch/generated/silver/0.webp",
+      "output": "/home/bestsellers-v3/chrono-watch.webp"
+    },
+    {
+      "handle": "form-lamp",
+      "prompt": "Use case: product-mockup. Premium photoreal transparent cutout of the SAME sand Form Lamp in reference: warm beige mushroom dome shade, short cylindrical stem and round disc base, matte powder-coated metal. Fresh slightly elevated frontal three-quarter view with subtle warm illumination beneath the shade. Realistic fine matte texture, precise rim details, soft studio light. Entire lamp clearly visible with generous padding. Fully transparent alpha background with clean edges. No floor, props, cast shadow, added cables, new logos, text, rectangle or haze.",
+      "reference": "C:/Users/LENOVO/Desktop/travel-agency/public/products/form-lamp/generated/sand/0.webp",
+      "output": "/home/bestsellers-v3/form-lamp.webp"
+    }
+  ]
+}

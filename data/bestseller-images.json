@@ -1,0 +1,27 @@
+{
+  "roam-backpack": {
+    "src": "/home/bestsellers-v3/roam-backpack.webp",
+    "width": 909,
+    "height": 1200
+  },
+  "pace-sneaker": {
+    "src": "/home/bestsellers-v3/pace-sneaker.webp",
+    "width": 1200,
+    "height": 709
+  },
+  "cove-speaker": {
+    "src": "/home/bestsellers-v3/cove-speaker.webp",
+    "width": 1132,
+    "height": 984
+  },
+  "chrono-watch": {
+    "src": "/home/bestsellers-v3/chrono-watch.webp",
+    "width": 667,
+    "height": 1126
+  },
+  "form-lamp": {
+    "src": "/home/bestsellers-v3/form-lamp.webp",
+    "width": 813,
+    "height": 957
+  }
+}

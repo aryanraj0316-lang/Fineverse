@@ -25,6 +25,12 @@ interface Props {
   start?: string;
   end?: string;
   className?: string;
+  /** Keep the scene behind transparent product frames visible. */
+  transparent?: boolean;
+  /** Free decoded frames while a below-the-fold scene is off screen. */
+  releaseOffscreen?: boolean;
+  /** Optional breakpoint for sequences whose composition follows CSS layout. */
+  mobileMedia?: string;
 }
 
 /**
@@ -40,7 +46,7 @@ interface Props {
  * - cover-fit with DPR capped at 2; still-image fallback and reduced motion.
  */
 export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function ScrollFrames(
-  { sources, fallbackSrc, fallbackAlt = "", reducedMotionProgress = 1, trigger, start = "top top", end = "bottom bottom", className },
+  { sources, fallbackSrc, fallbackAlt = "", reducedMotionProgress = 1, trigger, start = "top top", end = "bottom bottom", className, transparent = false, releaseOffscreen = false, mobileMedia },
   ref,
 ) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -51,19 +57,21 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d", { alpha: false });
+    const ctx = canvas?.getContext("2d", { alpha: transparent });
     const handle = api.current;
     if (!canvas || !ctx) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const pickSet = (): FrameSet | undefined =>
-      window.innerWidth / window.innerHeight < 1 ? sources.mobile ?? sources.desktop : sources.desktop ?? sources.mobile;
+      (mobileMedia ? window.matchMedia(mobileMedia).matches : window.innerWidth / window.innerHeight < 1) ? sources.mobile ?? sources.desktop : sources.desktop ?? sources.mobile;
 
     let set = pickSet();
     let frames: (ImageBitmap | undefined)[] = [];
     let abort = new AbortController();
-    let visible = true;
-    let wakeLoader: (() => void) | null = null;
+    let visible = !releaseOffscreen;
+    let released = releaseOffscreen;
+    const waiting = new Set<() => void>();
+    const wakeLoader = () => { waiting.forEach((resume) => resume()); waiting.clear(); };
     let progress = reduce ? reducedMotionProgress : 0;
     let drawn = -1;
     let sizeKey = "";
@@ -72,8 +80,9 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
 
     // Poster first, then every 8th, 4th, 2nd frame, then the rest.
     const loadOrder = (count: number) => {
-      const seen = new Set<number>([0]);
-      const order = [0];
+      const target = Math.round(progress * (count - 1));
+      const seen = new Set<number>([target, 0]);
+      const order = target === 0 ? [0] : [target, 0];
       for (const step of [8, 4, 2, 1]) {
         for (let i = 0; i < count; i += step) {
           if (seen.has(i)) continue;
@@ -96,6 +105,7 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
     const draw = (force = false) => {
       if (!set || !visible) return;
       const target = Math.round(progress * (set.count - 1));
+      canvas.dataset.targetFrame = String(target);
       const index = nearestLoaded(target);
       if (index < 0) return;
       const key = `${canvas.width}x${canvas.height}`;
@@ -105,8 +115,12 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
       const scale = Math.max(canvas.width / bitmap.width, canvas.height / bitmap.height);
       const w = bitmap.width * scale;
       const h = bitmap.height * scale;
+      if (transparent) ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(bitmap, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
       drawn = index;
+      canvas.dataset.frame = String(index);
+      canvas.dataset.targetFrame = String(target);
+      canvas.dataset.progress = progress.toFixed(4);
       sizeKey = key;
       if (fallbackRef.current) fallbackRef.current.style.opacity = "0";
     };
@@ -116,7 +130,12 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
       const queue = [...order];
       const worker = async () => {
         while (queue.length && !signal.aborted) {
-          if (!visible) await new Promise<void>((resolve) => (wakeLoader = resolve));
+          if (!visible) await new Promise<void>((resolve) => {
+            const resume = () => { waiting.delete(resume); signal.removeEventListener("abort", resume); resolve(); };
+            waiting.add(resume);
+            signal.addEventListener("abort", resume, { once: true });
+          });
+          if (signal.aborted) return;
           const i = queue.shift()!;
           try {
             const res = await fetch(url(s, i), { signal });
@@ -144,8 +163,10 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
       drawn = -1;
       abort = new AbortController();
       if (set) {
+        canvas.dataset.frameCount = String(set.count);
         frames = new Array(set.count);
-        void load(set, abort.signal);
+        if (visible) { released = false; void load(set, abort.signal); }
+        else released = true;
       }
     };
 
@@ -171,9 +192,16 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
     const io = new IntersectionObserver(([entry]) => {
       visible = Boolean(entry?.isIntersecting);
       if (visible) {
-        wakeLoader?.();
-        wakeLoader = null;
+        if (released) reset();
+        else wakeLoader();
         draw(true);
+      } else if (releaseOffscreen) {
+        abort.abort();
+        wakeLoader();
+        frames.forEach((bitmap) => bitmap?.close());
+        frames = [];
+        drawn = -1;
+        released = true;
       }
     });
     io.observe(canvas);
@@ -181,6 +209,7 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
     handle.render = (p: number) => {
       if (reduce) return;
       progress = Math.min(1, Math.max(0, p));
+      canvas.dataset.progress = progress.toFixed(4);
       draw();
     };
 
@@ -205,12 +234,12 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
       io.disconnect();
       cancelAnimationFrame(resizeFrame);
       abort.abort();
-      wakeLoader?.();
+      wakeLoader();
       frames.forEach((b) => b?.close());
       frames = [];
       handle.render = () => {};
     };
-  }, [sources, reducedMotionProgress, trigger, start, end]);
+  }, [sources, reducedMotionProgress, trigger, start, end, transparent, releaseOffscreen, mobileMedia]);
 
   return (
     <div className={cx("relative overflow-hidden", className)}>

@@ -1,0 +1,514 @@
+[
+  {
+    "handle": "pulse-earbuds",
+    "title": "Pulse Earbuds",
+    "description": "Noise-cancelling earbuds in a speckled matte case. Active noise cancelling takes out up to 42 dB of traffic and cabin noise, and transparency mode lets voices through when you need them. 8 hours per charge, 30 hours with the case.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "pulse-earbuds",
+    "title": "Pulse Earbuds",
+    "description": "Noise-cancelling earbuds in a speckled matte case. Active noise cancelling takes out up to 42 dB of traffic and cabin noise, and transparency mode lets voices through when you need them. 8 hours per charge, 30 hours with the case.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "tone-earbuds",
+    "title": "Tone Earbuds",
+    "description": "Everyday earbuds without the extras. A tuned 10 mm driver, a clear call microphone, and 7 hours per charge, 28 with the case. The stems are short enough to wear under a helmet.",
+    "colour": "Chalk",
+    "swatch": "#F2EFEA",
+    "slug": "chalk"
+  },
+  {
+    "handle": "tone-earbuds",
+    "title": "Tone Earbuds",
+    "description": "Everyday earbuds without the extras. A tuned 10 mm driver, a clear call microphone, and 7 hours per charge, 28 with the case. The stems are short enough to wear under a helmet.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "hush-headphones",
+    "title": "Hush Headphones",
+    "description": "Over-ear headphones with adaptive noise cancelling and memory-foam cushions in protein leather. 40 mm drivers, 40 hours per charge with noise cancelling on. They fold flat into a felt case.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "hush-headphones",
+    "title": "Hush Headphones",
+    "description": "Over-ear headphones with adaptive noise cancelling and memory-foam cushions in protein leather. 40 mm drivers, 40 hours per charge with noise cancelling on. They fold flat into a felt case.",
+    "colour": "Stone",
+    "swatch": "#CFC6B8",
+    "slug": "stone"
+  },
+  {
+    "handle": "cove-speaker",
+    "title": "Cove Speaker",
+    "description": "A portable speaker the size of a paperback. Two passive radiators keep the bass full outdoors, IP67 means it survives sand and a drop in the pool, and it plays for 16 hours per charge.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "cove-speaker",
+    "title": "Cove Speaker",
+    "description": "A portable speaker the size of a paperback. Two passive radiators keep the bass full outdoors, IP67 means it survives sand and a drop in the pool, and it plays for 16 hours per charge.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "cell-power-bank",
+    "title": "Cell Power Bank",
+    "description": "A graphite power bank with a textured shell that hides fingerprints. Two USB-C ports and one USB-A, so a phone and earbuds charge at the same time. The 20,000 mAh model charges most phones four times.",
+    "colour": "Graphite",
+    "swatch": "#3A3A3C",
+    "slug": "graphite"
+  },
+  {
+    "handle": "cell-mini",
+    "title": "Cell Mini Power Bank",
+    "description": "5,000 mAh in a magnetic slab that snaps to the back of Qi2 and MagSafe phones. A fold-out stand holds the phone upright while it charges. Recharges over USB-C.",
+    "colour": "Graphite",
+    "swatch": "#3A3A3C",
+    "slug": "graphite"
+  },
+  {
+    "handle": "cell-mini",
+    "title": "Cell Mini Power Bank",
+    "description": "5,000 mAh in a magnetic slab that snaps to the back of Qi2 and MagSafe phones. A fold-out stand holds the phone upright while it charges. Recharges over USB-C.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "field-overshirt",
+    "title": "Field Overshirt",
+    "description": "A heavy overshirt in 380 gsm brushed cotton with a jacquard texture. Two chest pockets with button flaps and a relaxed, boxy cut that sits over a tee. A shirt on mild days, a light jacket on cool evenings.",
+    "colour": "Stone Grey",
+    "swatch": "#8C857A",
+    "slug": "stone-grey"
+  },
+  {
+    "handle": "field-overshirt",
+    "title": "Field Overshirt",
+    "description": "A heavy overshirt in 380 gsm brushed cotton with a jacquard texture. Two chest pockets with button flaps and a relaxed, boxy cut that sits over a tee. A shirt on mild days, a light jacket on cool evenings.",
+    "colour": "Olive",
+    "swatch": "#5B5A3F",
+    "slug": "olive"
+  },
+  {
+    "handle": "field-overshirt",
+    "title": "Field Overshirt",
+    "description": "A heavy overshirt in 380 gsm brushed cotton with a jacquard texture. Two chest pockets with button flaps and a relaxed, boxy cut that sits over a tee. A shirt on mild days, a light jacket on cool evenings.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "base-tee",
+    "title": "Base Tee",
+    "description": "A 220 gsm combed-cotton tee with a tight rib collar that keeps its shape wash after wash. Pre-shrunk, so the size you buy is the size you keep.",
+    "colour": "Chalk",
+    "swatch": "#F2EFEA",
+    "slug": "chalk"
+  },
+  {
+    "handle": "base-tee",
+    "title": "Base Tee",
+    "description": "A 220 gsm combed-cotton tee with a tight rib collar that keeps its shape wash after wash. Pre-shrunk, so the size you buy is the size you keep.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "base-tee",
+    "title": "Base Tee",
+    "description": "A 220 gsm combed-cotton tee with a tight rib collar that keeps its shape wash after wash. Pre-shrunk, so the size you buy is the size you keep.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "shore-shirt",
+    "title": "Shore Shirt",
+    "description": "A lightweight shirt in washed linen that breathes in humid heat. Cut a little longer so it works untucked. Creases relax after an hour of wear.",
+    "colour": "Chalk",
+    "swatch": "#F2EFEA",
+    "slug": "chalk"
+  },
+  {
+    "handle": "shore-shirt",
+    "title": "Shore Shirt",
+    "description": "A lightweight shirt in washed linen that breathes in humid heat. Cut a little longer so it works untucked. Creases relax after an hour of wear.",
+    "colour": "Haze",
+    "swatch": "#AFC2D6",
+    "slug": "haze"
+  },
+  {
+    "handle": "shore-shirt",
+    "title": "Shore Shirt",
+    "description": "A lightweight shirt in washed linen that breathes in humid heat. Cut a little longer so it works untucked. Creases relax after an hour of wear.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "stride-trousers",
+    "title": "Stride Trousers",
+    "description": "Tapered trousers in cotton twill with 2% stretch, so they move when you ride a scooter or sit cross-legged. Gusseted crotch and a hidden zip pocket for keys.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "stride-trousers",
+    "title": "Stride Trousers",
+    "description": "Tapered trousers in cotton twill with 2% stretch, so they move when you ride a scooter or sit cross-legged. Gusseted crotch and a hidden zip pocket for keys.",
+    "colour": "Khaki",
+    "swatch": "#A89A7C",
+    "slug": "khaki"
+  },
+  {
+    "handle": "stride-trousers",
+    "title": "Stride Trousers",
+    "description": "Tapered trousers in cotton twill with 2% stretch, so they move when you ride a scooter or sit cross-legged. Gusseted crotch and a hidden zip pocket for keys.",
+    "colour": "Stone",
+    "swatch": "#CFC6B8",
+    "slug": "stone"
+  },
+  {
+    "handle": "shell-jacket",
+    "title": "Shell Jacket",
+    "description": "A packable rain shell for monsoon commutes. Fully seam-sealed with a 10,000 mm waterproof rating, a hood that fits over a cap, and it packs into its own chest pocket.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "shell-jacket",
+    "title": "Shell Jacket",
+    "description": "A packable rain shell for monsoon commutes. Fully seam-sealed with a 10,000 mm waterproof rating, a hood that fits over a cap, and it packs into its own chest pocket.",
+    "colour": "Olive",
+    "swatch": "#5B5A3F",
+    "slug": "olive"
+  },
+  {
+    "handle": "loop-hoodie",
+    "title": "Loop Hoodie",
+    "description": "A 400 gsm loopback-cotton hoodie with a double-layer hood and no drawcords to fray. Dropped shoulders, ribbed cuffs and a kangaroo pocket.",
+    "colour": "Grey Melange",
+    "swatch": "#A7A6A2",
+    "slug": "grey-melange"
+  },
+  {
+    "handle": "loop-hoodie",
+    "title": "Loop Hoodie",
+    "description": "A 400 gsm loopback-cotton hoodie with a double-layer hood and no drawcords to fray. Dropped shoulders, ribbed cuffs and a kangaroo pocket.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "tide-watch",
+    "title": "Tide Watch",
+    "description": "A round smartwatch with a 1.4-inch AMOLED display under sapphire glass, an aluminium case and a soft fluoroelastomer strap. Tracks heart rate, SpO2, sleep and GPS workouts, and lasts up to 14 days per charge.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "tide-watch",
+    "title": "Tide Watch",
+    "description": "A round smartwatch with a 1.4-inch AMOLED display under sapphire glass, an aluminium case and a soft fluoroelastomer strap. Tracks heart rate, SpO2, sleep and GPS workouts, and lasts up to 14 days per charge.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "tide-watch-titanium",
+    "title": "Tide Watch Titanium",
+    "description": "The Tide Watch in a grade 2 titanium case, which resists scratches far better than aluminium. Dual-frequency GPS holds a lock between tall buildings, and the larger battery lasts up to 18 days.",
+    "colour": "Natural",
+    "swatch": "#9C988F",
+    "slug": "natural"
+  },
+  {
+    "handle": "tide-watch-titanium",
+    "title": "Tide Watch Titanium",
+    "description": "The Tide Watch in a grade 2 titanium case, which resists scratches far better than aluminium. Dual-frequency GPS holds a lock between tall buildings, and the larger battery lasts up to 18 days.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "pace-band",
+    "title": "Pace Band",
+    "description": "A slim band for steps, sleep and heart rate, with a 1.1-inch AMOLED display you can read in sunlight. 12 days per charge and 5 ATM water resistance, so you can swim with it.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "pace-band",
+    "title": "Pace Band",
+    "description": "A slim band for steps, sleep and heart rate, with a 1.1-inch AMOLED display you can read in sunlight. 12 days per charge and 5 ATM water resistance, so you can swim with it.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "pace-band",
+    "title": "Pace Band",
+    "description": "A slim band for steps, sleep and heart rate, with a 1.1-inch AMOLED display you can read in sunlight. 12 days per charge and 5 ATM water resistance, so you can swim with it.",
+    "colour": "Sage",
+    "swatch": "#9AA58E",
+    "slug": "sage"
+  },
+  {
+    "handle": "arc-sunglasses",
+    "title": "Arc Sunglasses",
+    "description": "Square acetate frames with polarised UV400 lenses that cut glare off roads and water. Five-barrel metal hinges and a 142 mm frame width, a medium-wide fit.",
+    "colour": "Basalt",
+    "swatch": "#1F1E1C",
+    "slug": "basalt"
+  },
+  {
+    "handle": "arc-sunglasses",
+    "title": "Arc Sunglasses",
+    "description": "Square acetate frames with polarised UV400 lenses that cut glare off roads and water. Five-barrel metal hinges and a 142 mm frame width, a medium-wide fit.",
+    "colour": "Tortoise",
+    "swatch": "#6B4A2F",
+    "slug": "tortoise"
+  },
+  {
+    "handle": "halo-sunglasses",
+    "title": "Halo Sunglasses",
+    "description": "Round stainless-steel frames, 2 mm thin, with polarised glass lenses and adjustable nose pads. Light enough to forget you're wearing them.",
+    "colour": "Gold",
+    "swatch": "#B79A5B",
+    "slug": "gold"
+  },
+  {
+    "handle": "halo-sunglasses",
+    "title": "Halo Sunglasses",
+    "description": "Round stainless-steel frames, 2 mm thin, with polarised glass lenses and adjustable nose pads. Light enough to forget you're wearing them.",
+    "colour": "Gunmetal",
+    "swatch": "#55575A",
+    "slug": "gunmetal"
+  },
+  {
+    "handle": "vale-sunglasses",
+    "title": "Vale Sunglasses",
+    "description": "Light wrap sunglasses for running and cycling. They weigh 24 g, the temple tips grip when you sweat, and the contrast tint makes road surfaces easier to read.",
+    "colour": "Basalt",
+    "swatch": "#2A2927",
+    "slug": "basalt"
+  },
+  {
+    "handle": "vale-sunglasses",
+    "title": "Vale Sunglasses",
+    "description": "Light wrap sunglasses for running and cycling. They weigh 24 g, the temple tips grip when you sweat, and the contrast tint makes road surfaces easier to read.",
+    "colour": "Stone",
+    "swatch": "#CFC6B8",
+    "slug": "stone"
+  },
+  {
+    "handle": "dock-charger",
+    "title": "Dock Charger",
+    "description": "A graphite two-port USB-C wall charger with folding pins.",
+    "colour": "Graphite",
+    "swatch": "#3A3A3C",
+    "slug": "graphite"
+  },
+  {
+    "handle": "ridge-knit",
+    "title": "Ridge Knit",
+    "description": "A sand cotton crewneck sweater with ribbed cuffs, hem and neckline.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "link-strap",
+    "title": "Link Watch Strap",
+    "description": "An olive woven watch strap with a brushed steel buckle and quick-release fittings.",
+    "colour": "Olive",
+    "swatch": "#5B5A3F",
+    "slug": "olive"
+  },
+  {
+    "handle": "roam-backpack",
+    "title": "Roam Backpack",
+    "description": "A graphite everyday backpack with a laptop sleeve, rounded top and two adjustable shoulder straps.",
+    "colour": "Graphite",
+    "swatch": "#3A3A3C",
+    "slug": "graphite"
+  },
+  {
+    "handle": "weekend-duffel",
+    "title": "Weekend Duffel",
+    "description": "A sand canvas weekender with two handles, a removable shoulder strap and a zipped main compartment.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "cross-sling",
+    "title": "Cross Sling",
+    "description": "An olive crossbody sling with an adjustable webbing strap and a front zip pocket.",
+    "colour": "Olive",
+    "swatch": "#5B5A3F",
+    "slug": "olive"
+  },
+  {
+    "handle": "pace-sneaker",
+    "title": "Pace Sneaker",
+    "description": "A chalk low-top sneaker with a smooth leather upper, cotton laces and a cream rubber sole.",
+    "colour": "Chalk",
+    "swatch": "#F2EFEA",
+    "slug": "chalk"
+  },
+  {
+    "handle": "trail-runner",
+    "title": "Trail Runner",
+    "description": "An olive mesh running shoe with charcoal overlays, a sculpted foam midsole and a grippy rubber outsole.",
+    "colour": "Olive",
+    "swatch": "#5B5A3F",
+    "slug": "olive"
+  },
+  {
+    "handle": "coast-sandal",
+    "title": "Coast Sandal",
+    "description": "A sand two-strap sandal with metal buckles, a contoured cork footbed and a rubber outsole.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "form-lamp",
+    "title": "Form Lamp",
+    "description": "A sand table lamp with a rounded mushroom shade, short cylindrical stem and circular base.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "ritual-mug",
+    "title": "Ritual Mug",
+    "description": "A chalk glazed stoneware mug with a rounded body, generous curved handle and unglazed base.",
+    "colour": "Chalk",
+    "swatch": "#F2EFEA",
+    "slug": "chalk"
+  },
+  {
+    "handle": "still-organiser",
+    "title": "Still Organiser",
+    "description": "A walnut wooden desktop organiser with a pen cup, shallow tray and phone slot.",
+    "colour": "Walnut",
+    "swatch": "#765640",
+    "slug": "walnut"
+  },
+  {
+    "handle": "orbit-charging-pad",
+    "title": "Orbit Charging Pad",
+    "description": "A circular sand wireless charging pad with a slim aluminium rim and a rear USB-C port.",
+    "colour": "Sand",
+    "swatch": "#D9CFC1",
+    "slug": "sand"
+  },
+  {
+    "handle": "bridge-usb-hub",
+    "title": "Bridge USB Hub",
+    "description": "A slim graphite USB-C hub with a short attached cable, HDMI socket, USB ports and an SD card slot.",
+    "colour": "Graphite",
+    "swatch": "#3A3A3C",
+    "slug": "graphite"
+  },
+  {
+    "handle": "everyday-polo",
+    "title": "Everyday Polo",
+    "description": "A navy cotton pique polo shirt with a ribbed collar, short sleeves and a two-button placket.",
+    "colour": "Navy",
+    "swatch": "#263449",
+    "slug": "navy"
+  },
+  {
+    "handle": "rib-cardigan",
+    "title": "Rib Cardigan",
+    "description": "A cream cropped rib-knit cardigan with a V neckline, five tonal buttons and long relaxed sleeves.",
+    "colour": "Cream",
+    "swatch": "#E7DECD",
+    "slug": "cream"
+  },
+  {
+    "handle": "chrono-watch",
+    "title": "Chrono Watch",
+    "description": "A round brushed silver analogue wristwatch with an ivory dial, slim hour markers and a dark brown leather strap.",
+    "colour": "Silver",
+    "swatch": "#B9BCC0",
+    "slug": "silver"
+  },
+  {
+    "handle": "mira-watch",
+    "title": "Mira Watch",
+    "description": "A small round rose-gold smartwatch with a plain dark glass display and a soft blush silicone strap.",
+    "colour": "Rose Gold",
+    "swatch": "#CFA38D",
+    "slug": "rose-gold"
+  },
+  {
+    "handle": "market-tote",
+    "title": "Market Tote",
+    "description": "A structured natural canvas tote bag with a rectangular base, two long dark brown leather handles and an open top.",
+    "colour": "Natural",
+    "swatch": "#DDD1BC",
+    "slug": "natural"
+  },
+  {
+    "handle": "transit-messenger",
+    "title": "Transit Messenger",
+    "description": "A charcoal canvas messenger bag with a broad front flap, two metal clasp closures and an adjustable shoulder strap.",
+    "colour": "Charcoal",
+    "swatch": "#454542",
+    "slug": "charcoal"
+  },
+  {
+    "handle": "petal-flat",
+    "title": "Petal Flat",
+    "description": "A black leather ballet flat with a rounded toe, low heel and a small matching bow over the toe.",
+    "colour": "Black",
+    "swatch": "#242321",
+    "slug": "black"
+  },
+  {
+    "handle": "city-derby",
+    "title": "City Derby",
+    "description": "A dark brown polished leather derby shoe with open lacing, a rounded toe and a low stacked heel.",
+    "colour": "Umber",
+    "swatch": "#654B39",
+    "slug": "umber"
+  },
+  {
+    "handle": "arc-vase",
+    "title": "Arc Vase",
+    "description": "A matte cream ceramic vase with a rounded belly, narrow opening and fine vertical fluting.",
+    "colour": "Cream",
+    "swatch": "#E7DECD",
+    "slug": "cream"
+  },
+  {
+    "handle": "linen-cushion",
+    "title": "Linen Cushion",
+    "description": "A square olive linen cushion with softly rounded corners, a concealed zip and a plump removable insert.",
+    "colour": "Olive",
+    "swatch": "#737660",
+    "slug": "olive"
+  }
+]

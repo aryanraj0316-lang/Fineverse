@@ -112,7 +112,8 @@ export function SiteHeader({
 
           <NavLogo onClick={closeNow} />
 
-          <ul className="ml-[clamp(3rem,6.2vw,6rem)] hidden items-center gap-[clamp(1.75rem,2.9vw,3rem)] lg:flex">
+          <ul className="ml-[clamp(1.25rem,2vw,2rem)] hidden items-center gap-[clamp(.75rem,1.4vw,1.5rem)] lg:flex">
+            {["Men", "Women"].map((title) => <li key={title} onPointerEnter={closeNow}><Link href={`/shop/${title.toLowerCase()}`} onClick={closeNow} className="py-3 text-small font-semibold transition-opacity hover:opacity-60">{title}</Link></li>)}
             {categories.map((category) => (
               <li
                 key={category.handle}

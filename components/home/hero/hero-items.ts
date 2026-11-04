@@ -59,8 +59,8 @@ export const heroItems: HeroItem[] = [
     layer: "back",
     order: 1,
     desktop: {
-      start: { x: 36.5, y: 19, w: 12.6 },
-      mid: { x: 30, y: 11, w: 12, r: -8 },
+      start: { x: 36.5, y: 29, w: 10.5 },
+      mid: { x: 30, y: 29, w: 10, r: -8 },
       landed: { x: 33, y: 79.7, w: 8 },
       shadow: {
         start: { x: 33, y: 84, w: 104, opacity: 0.25 },
@@ -68,8 +68,8 @@ export const heroItems: HeroItem[] = [
       },
     },
     mobile: {
-      start: { x: 80, y: 14, w: 30 },
-      mid: { x: 84, y: 9, w: 28, r: -8 },
+      start: { x: 80, y: 25, w: 24 },
+      mid: { x: 84, y: 24, w: 24, r: -8 },
       landed: { x: 72, y: 57, w: 20 },
       shadow: {
         start: { x: 74, y: 80, w: 91, opacity: 0.2 },
@@ -85,8 +85,8 @@ export const heroItems: HeroItem[] = [
     layer: "back",
     order: 3,
     desktop: {
-      start: { x: 71.9, y: 18.5, w: 26 },
-      mid: { x: 80, y: 10, w: 24, r: 6 },
+      start: { x: 71.9, y: 27, w: 22 },
+      mid: { x: 78, y: 26, w: 21, r: 6 },
       landed: { x: 67, y: 81.6, w: 13 },
       shadow: {
         start: { x: 68, y: 83, w: 85, opacity: 0.25 },
@@ -94,8 +94,8 @@ export const heroItems: HeroItem[] = [
       },
     },
     mobile: {
-      start: { x: 58, y: 29, w: 58 },
-      mid: { x: 62, y: 24, w: 54, r: 5 },
+      start: { x: 58, y: 36, w: 50 },
+      mid: { x: 62, y: 33, w: 48, r: 5 },
       landed: { x: 72, y: 69.5, w: 32 },
       shadow: {
         start: { x: 54, y: 80, w: 78, opacity: 0.2 },
@@ -111,8 +111,8 @@ export const heroItems: HeroItem[] = [
     layer: "front",
     order: 0,
     desktop: {
-      start: { x: 22.6, y: 49.9, w: 21.2 },
-      mid: { x: 14, y: 44, w: 22.5, r: -6 },
+      start: { x: 22.6, y: 49, w: 18.5 },
+      mid: { x: 16, y: 47, w: 19.5, r: -6 },
       landed: { x: 16, y: 78.2, w: 9 },
       shadow: {
         start: { x: 19, y: 88, w: 111, opacity: 0.56 },
@@ -120,8 +120,8 @@ export const heroItems: HeroItem[] = [
       },
     },
     mobile: {
-      start: { x: 27, y: 50, w: 46 },
-      mid: { x: 20, y: 46, w: 48, r: -6 },
+      start: { x: 27, y: 51, w: 42 },
+      mid: { x: 22, y: 48, w: 44, r: -6 },
       landed: { x: 28, y: 57, w: 19 },
       shadow: {
         start: { x: 24, y: 83, w: 104, opacity: 0.47 },
@@ -137,8 +137,8 @@ export const heroItems: HeroItem[] = [
     layer: "front",
     order: 2,
     desktop: {
-      start: { x: 53.5, y: 56.7, w: 31.2 },
-      mid: { x: 56, y: 52, w: 33, r: 4 },
+      start: { x: 53.5, y: 53, w: 27 },
+      mid: { x: 56, y: 52, w: 28, r: 4 },
       landed: { x: 50, y: 76.6, w: 14 },
       shadow: {
         start: { x: 50, y: 90, w: 104, opacity: 0.62 },
@@ -146,8 +146,8 @@ export const heroItems: HeroItem[] = [
       },
     },
     mobile: {
-      start: { x: 67, y: 57, w: 60 },
-      mid: { x: 72, y: 54, w: 62, r: 4 },
+      start: { x: 67, y: 59, w: 54 },
+      mid: { x: 70, y: 56, w: 56, r: 4 },
       landed: { x: 28, y: 69, w: 23 },
       shadow: {
         start: { x: 63, y: 84, w: 104, opacity: 0.53 },
@@ -163,8 +163,8 @@ export const heroItems: HeroItem[] = [
     layer: "front",
     order: 4,
     desktop: {
-      start: { x: 79.8, y: 61.5, w: 16.7 },
-      mid: { x: 88, y: 56, w: 17.5, r: 8 },
+      start: { x: 79.8, y: 58, w: 15 },
+      mid: { x: 86, y: 56, w: 15.5, r: 8 },
       landed: { x: 84, y: 79.6, w: 8.5 },
       shadow: {
         start: { x: 77, y: 89, w: 111, opacity: 0.56 },

@@ -1,0 +1,44 @@
+{
+  "fold-desk-lamp": [
+    {
+      "src": "/products/fold-desk-lamp/studio.webp",
+      "width": 1200,
+      "height": 1200,
+      "alt": "Fold Desk Lamp, studio product photograph"
+    },
+    {
+      "src": "/home/manifesto/studio-collection.webp",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Fold Desk Lamp with the Fold, Pebble and Folio collection in a sunlit interior"
+    }
+  ],
+  "pebble-speaker": [
+    {
+      "src": "/products/pebble-speaker/studio.webp",
+      "width": 1200,
+      "height": 1200,
+      "alt": "Pebble Speaker, studio product photograph"
+    },
+    {
+      "src": "/home/manifesto/studio-collection.webp",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Pebble Speaker with the Fold, Pebble and Folio collection in a sunlit interior"
+    }
+  ],
+  "folio-tech-pouch": [
+    {
+      "src": "/products/folio-tech-pouch/studio.webp",
+      "width": 1200,
+      "height": 1200,
+      "alt": "Folio Tech Pouch, studio product photograph"
+    },
+    {
+      "src": "/home/manifesto/studio-collection.webp",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Folio Tech Pouch with the Fold, Pebble and Folio collection in a sunlit interior"
+    }
+  ]
+}

@@ -4,12 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-build-assets.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "qa": "node scripts/qa-screenshots.mjs",
     "qa:viewports": "node scripts/qa-viewports.mjs",
+    "qa:catalog": "node scripts/qa-catalog.mjs",
+    "qa:categories": "node scripts/qa-category-gallery.mjs",
+    "qa:editorial": "node scripts/qa-editorial-sections.mjs",
+    "qa:audio": "node scripts/qa-scroll-breakdowns.mjs",
+    "qa:anatomy": "node scripts/qa-scroll-breakdowns.mjs",
+    "frames:breakdowns": "node scripts/render-breakdown-frames.mjs",
+    "assets:sync": "node scripts/sync-product-images.mjs",
+    "assets:check": "node scripts/sync-product-images.mjs --check",
     "lighthouse": "node scripts/lighthouse.mjs"
   },
   "dependencies": {

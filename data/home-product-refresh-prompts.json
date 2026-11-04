@@ -1,0 +1,46 @@
+﻿{
+  "mode": "built-in image_gen",
+  "jobs": [
+    {
+      "handle": "pulse-earbuds",
+      "prompt": "Use case: product-mockup. Asset: new premium ecommerce product cutout for a stone plinth display. Reference image is product identity only. Rephotograph these same speckled warm ivory wireless earbuds and open oval charging case from a fresh almost straight-on three-quarter right angle, lid open upright, both earbuds neatly seated and fully visible. Case resting level rather than steeply diagonal. Precise realistic soft-touch speckled material, detailed black speaker vents, controlled studio softbox lighting with gentle warm highlights. Entire product isolated with generous clear margins, no pedestal, no props, no floor or cast shadow. Truly transparent background with clean alpha edges, no white/cream rectangle, no text or extra branding, no watermark. High resolution photoreal product photography.",
+      "reference": "public/hero/items/earbuds.png",
+      "output": "public/home/products-v2/pulse-earbuds.webp"
+    },
+    {
+      "handle": "tide-watch",
+      "prompt": "Use case: product-mockup. Asset: new premium ecommerce product cutout for a stone plinth display. Reference image defines the product identity: same round basalt aluminium smartwatch, slim bezel, crown, black silicone strap, elegant black analog dial and a restrained blue seconds hand. Photograph a fresh upright frontal three-quarter view from the RIGHT, dial facing camera more squarely, strap loop standing naturally behind. Crisp glass reflections and fine brushed metal edges, realistic silicone and aperture details, sophisticated controlled studio softbox lighting. Whole watch visible with clear margins, isolated on a truly transparent background, no floor, no props, no pedestal, no cast shadow, no rectangle or checkerboard. Do not change product design, no extra logos or text, no watermark. Photoreal high resolution.",
+      "reference": "public/hero/items/watch.png",
+      "output": "public/home/products-v2/tide-watch.webp"
+    },
+    {
+      "handle": "field-overshirt",
+      "prompt": "Use case: product-mockup. Asset: premium ecommerce transparent product photograph. Reference image defines the same Fineverse stone-grey jacquard overshirt, geometric woven texture, dark buttons, pointed collar and two flap chest pockets. Rephotograph in a NEW professionally folded arrangement, straightened almost front-on with a gentle quarter-turn to the LEFT, tidy rectangular stack, collar fully visible at top and both pocket details visible. Not the old steep floating diagonal fold. Tactile realistic brushed cotton fibers and meticulous stitching. Soft directional studio illumination from upper left, entire product sharply detailed and comfortably inside the image. Truly transparent background with clean alpha, no floor or cast shadow, no pedestal, no props, no extra text or branding, no watermark. Photoreal commercial photography.",
+      "reference": "public/hero/items/overshirt.png",
+      "output": "public/home/products-v2/field-overshirt.webp"
+    },
+    {
+      "handle": "arc-sunglasses",
+      "prompt": "Use case: product-mockup. Asset: premium ecommerce transparent product cutout. Reference image defines same matte black D-frame Arc Sunglasses, dark smoke lenses, discreet silver hinge pins and thick gently curved temples. Create a fresh editorial product photograph from a lower, near-frontal three-quarter angle, both lenses clearly visible and temples elegantly opened behind, more symmetrical than the reference. Crisp acetate edge detail, natural controlled reflections in dark lenses, softbox studio lighting, realistic optical glass, physically credible form. Product isolated entirely with clear padding on a truly transparent alpha background. No floor, no cast shadow, no pedestal, no props, no new branding or text, no watermark. Photoreal high quality.",
+      "reference": "public/hero/items/sunglasses.png",
+      "output": "public/home/products-v2/arc-sunglasses.webp"
+    },
+    {
+      "handle": "cell-power-bank",
+      "prompt": "Use case: product-mockup. Asset: premium ecommerce transparent product cutout. Reference image defines the SAME rounded rectangular graphite Cell Power Bank, fine textured fingerprint-resistant shell, tiny subtle F mark and port layout with two USB-C ports and one USB-A. Photograph it in a fresh upright slightly leaning pose, long edge almost vertical, port end toward the viewer at the bottom, three-quarter right view showing the narrow metal edge and clear accurate ports. Realistic fine-grain charcoal texture, subtle premium rim light, careful softbox reflections. Entire product inside frame with generous clear padding. Truly transparent alpha background, no floor or cast shadow, no pedestal, no props, no extra accessories or text, no watermark. Photoreal product campaign image.",
+      "reference": "public/hero/items/powerbank.png",
+      "output": "public/home/products-v2/cell-power-bank.webp"
+    }
+  ],
+  "scene": {
+    "prompt": "Use case: compositing / product-mockup. Asset: NEW photoreal premium ecommerce lookbook still life, wide landscape composition approximately 8:5 (1600x1000). Input images 1-5 are product identity references (in order: speckled ivory Pulse Earbuds, black round Tide Watch, neatly folded grey jacquard Field Overshirt, matte black Arc Sunglasses, graphite Cell Power Bank). The setting is a warm sandy limestone terrace with a sculptural pale stone archway on the right, distant desert hills and a clear hazy blue sky fading to soft golden light near the horizon. Create an entirely fresh, professionally art-directed still life of exactly these five products on a warm limestone terrace at golden hour, faithfully matching their designs, fabrics, materials and colors. Modern luxury campaign photography with realistic natural light, small soft contact shadows, beautiful texture and excellent clarity. Composition: keep every product completely inside the frame with at least 6 percent margin. Place sunglasses at x15%, y77%; folded overshirt x34%, y66% as largest textile piece; watch upright x54%, y69%; earbuds case open x73%, y77%; power bank slightly leaning upright x88%, y72%. Arrange in a graceful loosely staggered row in the lower half, spaced apart, with usable sky/architecture above. No product overlapping another. Fresh frontal product angles from the supplied new references, no old steep floating diagonal shirt pose. The power bank MUST be fully visible including right edge. No UI markers, no buttons, no added text, no watermark. Keep natural golden warmth restrained rather than heavily orange. Products are the focus. Wide, refined, high fidelity photographic finish.",
+    "references": [
+      "assets-src/home-product-refresh/pulse-earbuds.png",
+      "assets-src/home-product-refresh/tide-watch.png",
+      "assets-src/home-product-refresh/field-overshirt.png",
+      "assets-src/home-product-refresh/arc-sunglasses.png",
+      "assets-src/home-product-refresh/cell-power-bank.png"
+    ],
+    "output": "public/home/products-v2/terrace.webp"
+  }
+}

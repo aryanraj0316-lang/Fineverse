@@ -19,6 +19,8 @@ export interface ColourOption {
   swatch: string;
   /** [packshot, second angle] */
   images: [ProductImage, ProductImage];
+  /** Ordered photographs covering one complete rotation. */
+  spin?: string[];
 }
 
 export interface Variant {
@@ -33,6 +35,7 @@ export interface Variant {
 }
 
 export interface Product {
+  audiences: ("men" | "women")[];
   handle: string;
   href: string;
   title: string;

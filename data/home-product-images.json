@@ -1,0 +1,27 @@
+{
+  "pulse-earbuds": {
+    "src": "/home/products-v2/pulse-earbuds.webp",
+    "width": 1121,
+    "height": 1078
+  },
+  "tide-watch": {
+    "src": "/home/products-v2/tide-watch.webp",
+    "width": 951,
+    "height": 1200
+  },
+  "field-overshirt": {
+    "src": "/home/products-v2/field-overshirt.webp",
+    "width": 1160,
+    "height": 1145
+  },
+  "arc-sunglasses": {
+    "src": "/home/products-v2/arc-sunglasses.webp",
+    "width": 1200,
+    "height": 509
+  },
+  "cell-power-bank": {
+    "src": "/home/products-v2/cell-power-bank.webp",
+    "width": 740,
+    "height": 1200
+  }
+}

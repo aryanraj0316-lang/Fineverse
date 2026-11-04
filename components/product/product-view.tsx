@@ -16,6 +16,7 @@ import { useRecent } from "@/stores/recent";
 import { NotifyMe } from "./notify-me";
 import { PincodeCheck } from "./pincode-check";
 import { SizeGuide } from "./size-guide";
+import { ProductSpin } from "./product-spin";
 
 const ease = [0.2, 0.7, 0.2, 1] as const;
 const fade = { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, transition: { duration: 0.2, ease } };
@@ -27,6 +28,7 @@ export function ProductView({ product }: { product: Product }) {
   const [error, setError] = useState<string | null>(null);
   const [adding, setAdding] = useState(false);
   const mainButton = useRef<HTMLButtonElement>(null);
+  const gallery = useRef<HTMLDivElement>(null);
   const [stickyVisible, setStickyVisible] = useState(false);
   const optionGroup = useRef<HTMLDivElement>(null);
 
@@ -76,8 +78,8 @@ export function ProductView({ product }: { product: Product }) {
   return (
     <div className="lg:grid lg:grid-cols-12 lg:gap-10 lg:px-gutter lg:pt-[calc(var(--nav-h)+2rem)]">
       {/* Gallery: stacked on desktop, swipe with progress bar on phones */}
-      <div className="lg:col-span-7">
-        <Gallery key={colour.slug} images={colour.images} title={product.title} />
+      <div ref={gallery} className="lg:col-span-7">
+        <Gallery key={colour.slug} images={colour.images} title={product.title} spin={colour.spin} colour={colour.name} />
       </div>
 
       {/* Buy box */}
@@ -182,7 +184,7 @@ export function ProductView({ product }: { product: Product }) {
             ref={mainButton}
             type="button"
             disabled={adding}
-            onClick={() => add(document.querySelector<HTMLImageElement>("[data-gallery-image]"))}
+            onClick={() => add(gallery.current?.querySelector<HTMLImageElement>("[data-gallery-image]") ?? null)}
             className={buttonClasses(variant && !variant.available ? "secondary" : "primary", "lg", "mt-3 w-full")}
           >
             {buttonLabel}
@@ -274,7 +276,7 @@ export function ProductView({ product }: { product: Product }) {
                 {variant ? ` · ${variant.title}` : ""}
               </p>
             </div>
-            <button type="button" disabled={adding} onClick={() => add(document.querySelector<HTMLImageElement>("[data-gallery-image]"))} className={buttonClasses(variant && !variant.available ? "secondary" : "primary", "md")}>
+            <button type="button" disabled={adding} onClick={() => add(gallery.current?.querySelector<HTMLImageElement>("[data-gallery-image]") ?? null)} className={buttonClasses(variant && !variant.available ? "secondary" : "primary", "md")}>
               {buttonLabel}
             </button>
           </motion.div>
@@ -286,12 +288,21 @@ export function ProductView({ product }: { product: Product }) {
   );
 }
 
-function Gallery({ images, title }: { images: Product["colours"][number]["images"]; title: string }) {
+function Gallery({ images, title, spin, colour }: { images: Product["colours"][number]["images"]; title: string; spin?: string[]; colour: string }) {
   const track = useRef<HTMLDivElement>(null);
   const bar = useRef<HTMLDivElement>(null);
+  const [mode, setMode] = useState<"photos" | "spin">(spin ? "spin" : "photos");
 
   return (
     <div>
+      {spin && (
+        <div className="mb-4 flex gap-2 px-gutter pt-4 lg:px-0 lg:pt-0" role="group" aria-label="Product gallery mode">
+          <button type="button" aria-pressed={mode === "photos"} onClick={() => setMode("photos")} className={buttonClasses(mode === "photos" ? "primary" : "secondary", "sm")}>Photos</button>
+          <button type="button" aria-pressed={mode === "spin"} onClick={() => setMode("spin")} className={buttonClasses(mode === "spin" ? "primary" : "secondary", "sm")}>360° view</button>
+        </div>
+      )}
+      {spin && mode === "spin" && <ProductSpin frames={spin} title={title} colour={colour} />}
+      <div hidden={mode === "spin"}>
       <motion.div
         ref={track}
         initial={{ opacity: 0.4 }}
@@ -326,6 +337,7 @@ function Gallery({ images, title }: { images: Product["colours"][number]["images
       </motion.div>
       <div aria-hidden className="mx-gutter mt-3 h-0.5 overflow-hidden rounded-full bg-basalt/10 lg:hidden">
         <div ref={bar} className="h-full origin-left bg-basalt transition-transform duration-150" style={{ transform: `scaleX(${1 / images.length})` }} />
+      </div>
       </div>
     </div>
   );

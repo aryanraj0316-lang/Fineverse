@@ -1,5 +1,9 @@
 # Assets to supply
 
+Headphone and watch feature update: both homepage showcases use transparent scroll-scrubbed frame sequences in `public/frames/{hush,tide}-breakdown/`, composed from component images in `public/breakdowns/`. Scroll controls the separation and sequential labels in both directions. See `docs/product-anatomy.md` for imagery, prompts and checks. Additional Hush photographs remain available in `public/home/audio/`.
+
+Catalog update: all 42 products and 64 colour variants now use generated packshots and eight-angle turntables in `public/products/{handle}/generated/{colour}/`. The legacy product-placeholder list below is historical; those files are preserved but superseded by `data/generated-product-images.json`. See `docs/product-imagery.md` for sources, prompts and validation. Scene and hero assets listed below remain separate.
+
 Everything below is either missing or a stand-in. Every placeholder sits at its
 final file path, so replacing an asset means overwriting the file; no code
 changes are needed. Sources for the files I generated are in `assets-src/`.

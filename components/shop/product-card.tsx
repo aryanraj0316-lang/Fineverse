@@ -46,6 +46,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 ease-out [@media(hover:hover)]:group-hover:opacity-100"
           />
         </Link>
+        {product.available && colour.spin && <span className="pointer-events-none absolute top-3 left-3 rounded-full bg-chalk/90 px-2.5 py-1 text-micro font-medium">360° view</span>}
         {!product.available && (
           <span className="absolute top-3 left-3 rounded-full bg-chalk/90 px-2.5 py-1 text-micro font-medium">Out of stock</span>
         )}

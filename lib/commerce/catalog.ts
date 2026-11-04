@@ -3,6 +3,10 @@
  * data, prices and stock only from here, never from data/ directly.
  */
 import { productSeeds, type ProductSeed } from "@/data/products";
+import { expandedProductSeeds } from "@/data/catalog-expansion";
+import { productAudiences } from "@/data/product-audiences";
+import generatedImages from "@/data/generated-product-images.json";
+import manifestoProductImages from "@/data/manifesto-product-images.json";
 import { collectionSeeds } from "@/data/collections";
 import { kitSeed } from "@/data/kit";
 import { policySeed } from "@/data/policy";
@@ -14,6 +18,7 @@ import type {
   ColourOption,
   Kit,
   Product,
+  ProductImage,
   Review,
   Rupees,
   StorePolicy,
@@ -46,14 +51,22 @@ function buildProduct(seed: ProductSeed): Product {
   const colours: ColourOption[] = seed.colours.map((c) => {
     const slug = slugify(c.name);
     const base = `/products/${seed.handle}/${slug}`;
+    const generated = (generatedImages as Record<string, number>)[`${seed.handle}/${slug}`];
+    const frames = generated ? Array.from({ length: generated }, (_, i) => `/products/${seed.handle}/generated/${slug}/${i}.webp`) : undefined;
+    const authoredImages = (manifestoProductImages as Record<string, ProductImage[]>)[seed.handle];
+    const editorialImages: [ProductImage, ProductImage] | undefined = authoredImages?.[0] && authoredImages[1] ? [authoredImages[0], authoredImages[1]] : undefined;
     return {
       name: c.name,
       slug,
       swatch: c.swatch,
-      images: [
+      spin: frames,
+      images: editorialImages ?? (frames ? [
+        { src: frames[0]!, alt: `${seed.title} in ${c.name}, front view`, width: 640, height: 640 },
+        { src: frames[1]!, alt: `${seed.title} in ${c.name}, three-quarter view`, width: 640, height: 640 },
+      ] : [
         { src: `${base}-1.webp`, alt: `${seed.title} in ${c.name}`, ...PACKSHOT },
         { src: `${base}-2.webp`, alt: `${seed.title} in ${c.name}, close-up`, ...DETAIL },
-      ],
+      ]),
     };
   });
 
@@ -82,6 +95,7 @@ function buildProduct(seed: ProductSeed): Product {
     href: `/products/${seed.handle}`,
     title: seed.title,
     category: seed.category,
+    audiences: seed.audiences ?? productAudiences[seed.handle] ?? [],
     type: seed.type,
     typeTitle: typeTitles.get(seed.type) ?? seed.type,
     description: seed.description,
@@ -106,7 +120,7 @@ function buildProduct(seed: ProductSeed): Product {
   };
 }
 
-const products: Product[] = productSeeds.map(buildProduct);
+const products: Product[] = [...productSeeds, ...expandedProductSeeds].map(buildProduct);
 const byHandle = new Map(products.map((p) => [p.handle, p]));
 
 function requireProduct(handle: string): Product {
@@ -115,10 +129,11 @@ function requireProduct(handle: string): Product {
   return product;
 }
 
-export function getProducts(filter?: { category?: CategoryHandle; tag?: string }): Product[] {
+export function getProducts(filter?: { category?: CategoryHandle; tag?: string; audience?: "men" | "women" }): Product[] {
   return products.filter(
     (p) =>
       (!filter?.category || p.category === filter.category) &&
+      (!filter?.audience || p.audiences.includes(filter.audience)) &&
       (!filter?.tag || p.tags.includes(filter.tag)),
   );
 }

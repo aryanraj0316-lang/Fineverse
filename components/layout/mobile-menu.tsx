@@ -87,6 +87,9 @@ export function MobileMenu({
             </div>
 
             <div data-lenis-prevent className="flex-1 overflow-y-auto overscroll-contain px-gutter pb-10">
+              <nav aria-label="Shop edits" className="mt-5 grid grid-cols-2 gap-3">
+                {["Men", "Women"].map((title) => <Link key={title} href={`/shop/${title.toLowerCase()}`} onClick={onClose} className="rounded-full border border-basalt/25 py-3 text-center text-body font-semibold">{title}</Link>)}
+              </nav>
               <ul className="mt-4 border-t border-basalt/10">
                 {categories.map((category, index) => {
                   const isOpen = expanded === category.handle;

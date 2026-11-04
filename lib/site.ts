@@ -1,8 +1,8 @@
 export const site = {
   name: "Fineverse",
-  tagline: "Tech, clothing and wearables that work together.",
+  tagline: "Considered essentials for every part of your day.",
   description:
-    "Earbuds, smartwatches, sunglasses, overshirts and power banks made to be used together. Cash on delivery, 7-day returns and delivery across India.",
+    "Electronics, clothing, wearables, bags, footwear and home essentials. Cash on delivery, 7-day returns and delivery across India.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 };
 
@@ -21,9 +21,14 @@ export const footerLinks: { title: string; links: { label: string; href: string 
   {
     title: "Shop",
     links: [
+      { label: "Men", href: "/shop/men" },
+      { label: "Women", href: "/shop/women" },
       { label: "Electronics", href: "/shop/electronics" },
       { label: "Clothing", href: "/shop/clothing" },
       { label: "Wearables", href: "/shop/wearables" },
+      { label: "Bags", href: "/shop/bags" },
+      { label: "Footwear", href: "/shop/footwear" },
+      { label: "Home", href: "/shop/home" },
       { label: "The Everyday Kit", href: "/kit" },
     ],
   },

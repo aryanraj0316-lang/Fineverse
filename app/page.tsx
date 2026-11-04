@@ -1,13 +1,17 @@
 import { Bestsellers, type Exhibit } from "@/components/home/bestsellers";
 import { CategoryIndex } from "@/components/home/category-index";
+import { AudienceCollections } from "@/components/home/audience-collections";
 import { ClothingWorld } from "@/components/home/clothing-world";
-import { ElectronicsWorld, type PartLabel } from "@/components/home/electronics-world";
+import { ElectronicsWorld } from "@/components/home/electronics-world";
 import { HeroScene } from "@/components/home/hero/hero-scene";
 import { Intro, introScript } from "@/components/home/intro";
 import { Lookbook, type Hotspot } from "@/components/home/lookbook";
 import { ReviewsCarousel } from "@/components/home/reviews-carousel";
-import { WatchStory, type WatchSpec } from "@/components/home/watch-story";
+import { FabricEdit, DesignManifesto, ShoppingNotes } from "@/components/home/brand-content";
+import { WatchStory } from "@/components/home/watch-story";
 import { featuredReviewIds } from "@/data/reviews";
+import homeProductImages from "@/data/home-product-images.json";
+import bestsellerImages from "@/data/bestseller-images.json";
 import {
   defaultVariant,
   formatPrice,
@@ -35,12 +39,13 @@ const quickAdd = (p: Product) => ({
 
 /** Cut-outs sized on their plinths so the exhibits read at a consistent scale. */
 const PLINTH_SCALE: Record<string, number> = {
-  "pulse-earbuds": 0.58,
-  "tide-watch": 0.6,
-  "field-overshirt": 0.9,
-  "arc-sunglasses": 0.92,
-  "cell-power-bank": 0.56,
+  "roam-backpack": 0.65,
+  "pace-sneaker": 0.9,
+  "cove-speaker": 0.75,
+  "chrono-watch": 0.5,
+  "form-lamp": 0.68,
 };
+const featureImages: Record<string, { src: string; width: number; height: number }> = homeProductImages;
 
 export default function HomePage() {
   const collections = getCollections();
@@ -48,55 +53,47 @@ export default function HomePage() {
   const watch = product("tide-watch");
   const overshirt = product("field-overshirt");
 
-  const categories = collections.map((c) => {
-    const featured = c.featured.cutout ? c.featured : product(c.handle === "electronics" ? "pulse-earbuds" : c.featured.handle);
-    return {
+  const categorySummaries = {
+    electronics: "Earbuds, headphones & charging.",
+    clothing: "Everyday layers & essential knitwear.",
+    wearables: "Watches, fitness bands & eyewear.",
+    bags: "Backpacks, totes & weekend carry.",
+    footwear: "Sneakers, sandals & leather shoes.",
+    home: "Lighting, ceramics & soft furnishings.",
+  };
+  const categories = collections.map((c) => ({
       handle: c.handle,
       title: c.title,
       href: c.href,
-      world: c.world,
-      product: { title: featured.title, image: featured.cutout! },
-    };
-  });
+      count: getProducts({ category: c.handle }).length,
+      summary: categorySummaries[c.handle],
+      image: { src: `/categories/${c.handle}.webp`, alt: `${c.title} essentials from Fineverse, arranged in a studio still life`, width: 1200, height: 960 },
+  }));
 
-  const partLabels: PartLabel[] = [
-    { part: "headband", label: "Folds flat", value: spec(headphones, "Weight") },
-    { part: "cushion", label: "Cushions", value: spec(headphones, "Cushions") },
-    { part: "driver", label: "Drivers", value: spec(headphones, "Drivers") },
-    { part: "mic", label: "Microphones", value: spec(headphones, "Microphones") },
-    { part: "shell", label: "Battery", value: spec(headphones, "Battery") },
-  ];
-
-  const watchSpecs: WatchSpec[] = [
-    { part: "glass", label: "Glass", value: `${spec(watch, "Glass")} over a ${spec(watch, "Display").split(",")[0]}` },
-    { part: "crown", label: "Crown", value: spec(watch, "Crown") },
-    { part: "strap", label: "Strap", value: spec(watch, "Strap") },
-  ];
-
-  const exhibits: Exhibit[] = getProducts({ tag: "bestseller" })
-    .filter((p) => p.cutout)
-    .map((p) => ({
+  const exhibits: Exhibit[] = (Object.keys(bestsellerImages) as (keyof typeof bestsellerImages)[])
+    .map((handle) => ({ product: product(handle), image: bestsellerImages[handle] }))
+    .map(({ product: p, image }) => ({
       handle: p.handle,
       title: p.title,
       href: p.href,
       price: formatPrice(p.priceFrom),
       meta: p.highlights[0] ?? p.typeTitle,
-      cutout: p.cutout!,
+      cutout: image,
       scale: PLINTH_SCALE[p.handle] ?? 0.7,
       ...quickAdd(p),
     }));
 
-  // Hotspot positions on the still life (public/lifestyle/still-life-terrace.webp).
+  // Positions follow the new terrace photo, with all five products inside its edges.
   const hotspotPositions: [string, number, number][] = [
-    ["field-overshirt", 40, 78],
-    ["tide-watch", 64, 82],
-    ["arc-sunglasses", 22, 89],
-    ["pulse-earbuds", 79, 87],
-    ["cell-power-bank", 92, 89],
+    ["field-overshirt", 34, 65],
+    ["tide-watch", 57, 68],
+    ["arc-sunglasses", 17, 79],
+    ["pulse-earbuds", 72, 77],
+    ["cell-power-bank", 88, 69],
   ];
   const hotspots: Hotspot[] = hotspotPositions.map(([handle, x, y]) => {
     const p = product(handle);
-    return { handle, x, y, title: p.title, href: p.href, price: formatPrice(p.priceFrom), ...quickAdd(p) };
+    return { handle, x, y, title: p.title, href: p.href, price: formatPrice(p.priceFrom), image: { ...(featureImages[handle] ?? p.colours[0]!.images[0]!), alt: p.title }, description: p.highlights[0] ?? p.typeTitle, ...quickAdd(p) };
   });
 
   const reviews = getReviews();
@@ -118,6 +115,7 @@ export default function HomePage() {
       <Intro />
       <HeroScene />
       <CategoryIndex categories={categories} />
+      <AudienceCollections />
       <ElectronicsWorld
         product={{
           title: headphones.title,
@@ -125,7 +123,14 @@ export default function HomePage() {
           price: formatPrice(headphones.priceFrom),
           summary: "Adaptive noise cancelling, 40 mm drivers and 40 hours per charge. They fold flat into a felt case.",
         }}
-        labels={partLabels}
+        details={{
+          drivers: spec(headphones, "Drivers"),
+          battery: spec(headphones, "Battery"),
+          weight: spec(headphones, "Weight"),
+          cushions: spec(headphones, "Cushions"),
+          quickCharge: spec(headphones, "Quick charge"),
+          bluetooth: spec(headphones, "Bluetooth"),
+        }}
         collectionHref={electronics.href}
       />
       <WatchStory
@@ -135,7 +140,14 @@ export default function HomePage() {
           price: formatPrice(watch.priceFrom),
           summary: `${watch.highlights[0]}. ${watch.highlights[1]}. A round aluminium case under sapphire glass.`,
         }}
-        specs={watchSpecs}
+        details={{
+          display: spec(watch, "Display"),
+          battery: spec(watch, "Battery"),
+          waterResistance: spec(watch, "Water resistance"),
+          glass: spec(watch, "Glass"),
+          case: spec(watch, "Case"),
+          strap: spec(watch, "Strap"),
+        }}
         watch={watch.cutout!}
       />
       <Bestsellers items={exhibits} viewAllHref="/shop?sort=bestsellers" />
@@ -150,14 +162,13 @@ export default function HomePage() {
         shirt={overshirt.cutout!}
       />
       <Lookbook
-        main={{ src: "/lifestyle/still-life-terrace.webp", alt: "The Everyday Kit resting on the stone terrace in late-afternoon light", width: 1600, height: 1000 }}
-        details={[
-          { src: "/products/tide-watch/basalt-2.webp", alt: "Tide Watch, close-up of the dial and crown", width: 960, height: 1200 },
-          { src: "/products/field-overshirt/stone-grey-2.webp", alt: "Field Overshirt, close-up of the collar and label", width: 960, height: 1200 },
-        ]}
+        main={{ src: "/home/products-v2/terrace.webp", alt: "Five everyday essentials arranged on a sunlit limestone terrace with a sculptural arch", width: 1586, height: 992 }}
         hotspots={hotspots}
       />
+      <FabricEdit />
+      <DesignManifesto />
       <ReviewsCarousel reviews={slides} />
+      <ShoppingNotes />
     </>
   );
 }

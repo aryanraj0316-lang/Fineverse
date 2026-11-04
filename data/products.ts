@@ -1,5 +1,5 @@
 /**
- * Mock catalogue: 18 products, 6 per category.
+ * Original demo products. Additional categories live in catalog-expansion.ts.
  *
  * Authoring format only. Components never import this file: everything goes
  * through `lib/commerce`, which turns these seeds into typed `Product`s.
@@ -9,7 +9,7 @@
  * are still placeholders are listed in ASSETS_TODO.md.
  */
 
-export type CategoryHandle = "electronics" | "clothing" | "wearables";
+export type CategoryHandle = "electronics" | "clothing" | "wearables" | "bags" | "footwear" | "home";
 export type KitSlot = "watch" | "earbuds" | "sunglasses" | "overshirt" | "powerbank";
 export type SizeGuideKind = "tops" | "trousers";
 
@@ -26,6 +26,7 @@ export interface SecondOptionSeed {
 }
 
 export interface ProductSeed {
+  audiences?: ("men" | "women")[];
   handle: string;
   title: string;
   category: CategoryHandle;

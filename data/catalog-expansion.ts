@@ -1,0 +1,41 @@
+import type { ProductSeed } from "./products";
+
+const entries = [
+  ["dock-charger", "Dock Charger", "electronics", "chargers", 2499, "A graphite two-port USB-C wall charger with folding pins.", "Graphite", "#3A3A3C", "65 W USB-C charging", "GaN housing"],
+  ["ridge-knit", "Ridge Knit", "clothing", "knitwear", 3299, "A sand cotton crewneck sweater with ribbed cuffs, hem and neckline.", "Sand", "#D9CFC1", "Textured cotton knit", "100% cotton"],
+  ["link-strap", "Link Watch Strap", "wearables", "watch-straps", 1299, "An olive woven watch strap with a brushed steel buckle and quick-release fittings.", "Olive", "#5B5A3F", "20 mm quick-release fitting", "Woven nylon"],
+  ["roam-backpack", "Roam Backpack", "bags", "backpacks", 4999, "A graphite everyday backpack with a laptop sleeve, rounded top and two adjustable shoulder straps.", "Graphite", "#3A3A3C", "22 litre capacity", "Recycled nylon"],
+  ["weekend-duffel", "Weekend Duffel", "bags", "duffels", 4499, "A sand canvas weekender with two handles, a removable shoulder strap and a zipped main compartment.", "Sand", "#D9CFC1", "35 litre capacity", "Cotton canvas"],
+  ["cross-sling", "Cross Sling", "bags", "slings", 1999, "An olive crossbody sling with an adjustable webbing strap and a front zip pocket.", "Olive", "#5B5A3F", "3 litre capacity", "Recycled nylon"],
+  ["pace-sneaker", "Pace Sneaker", "footwear", "sneakers", 3999, "A chalk low-top sneaker with a smooth leather upper, cotton laces and a cream rubber sole.", "Chalk", "#F2EFEA", "Cushioned footbed", "Leather and rubber"],
+  ["trail-runner", "Trail Runner", "footwear", "running-shoes", 5499, "An olive mesh running shoe with charcoal overlays, a sculpted foam midsole and a grippy rubber outsole.", "Olive", "#5B5A3F", "Lugged rubber outsole", "Mesh and rubber"],
+  ["coast-sandal", "Coast Sandal", "footwear", "sandals", 2299, "A sand two-strap sandal with metal buckles, a contoured cork footbed and a rubber outsole.", "Sand", "#D9CFC1", "Adjustable buckle straps", "Cork and synthetic leather"],
+  ["form-lamp", "Form Lamp", "home", "lighting", 3499, "A sand table lamp with a rounded mushroom shade, short cylindrical stem and circular base.", "Sand", "#D9CFC1", "Warm ambient light", "Powder-coated metal"],
+  ["ritual-mug", "Ritual Mug", "home", "drinkware", 799, "A chalk glazed stoneware mug with a rounded body, generous curved handle and unglazed base.", "Chalk", "#F2EFEA", "350 ml capacity", "Glazed stoneware"],
+  ["still-organiser", "Still Organiser", "home", "desk-accessories", 1299, "A walnut wooden desktop organiser with a pen cup, shallow tray and phone slot.", "Walnut", "#765640", "Three storage compartments", "Walnut wood"],
+  ["orbit-charging-pad", "Orbit Charging Pad", "electronics", "chargers", 1799, "A circular sand wireless charging pad with a slim aluminium rim and a rear USB-C port.", "Sand", "#D9CFC1", "15 W wireless charging", "Aluminium and silicone"],
+  ["bridge-usb-hub", "Bridge USB Hub", "electronics", "usb-hubs", 3299, "A slim graphite USB-C hub with a short attached cable, HDMI socket, USB ports and an SD card slot.", "Graphite", "#3A3A3C", "Six connection ports", "Anodised aluminium"],
+  ["everyday-polo", "Everyday Polo", "clothing", "t-shirts", 1899, "A navy cotton pique polo shirt with a ribbed collar, short sleeves and a two-button placket.", "Navy", "#263449", "Breathable pique knit", "100% cotton"],
+  ["rib-cardigan", "Rib Cardigan", "clothing", "knitwear", 3599, "A cream cropped rib-knit cardigan with a V neckline, five tonal buttons and long relaxed sleeves.", "Cream", "#E7DECD", "Soft ribbed knit", "Cotton blend"],
+  ["chrono-watch", "Chrono Watch", "wearables", "analog-watches", 6499, "A round brushed silver analogue wristwatch with an ivory dial, slim hour markers and a dark brown leather strap.", "Silver", "#B9BCC0", "Quartz movement", "Stainless steel and leather"],
+  ["mira-watch", "Mira Watch", "wearables", "smartwatches", 8999, "A small round rose-gold smartwatch with a plain dark glass display and a soft blush silicone strap.", "Rose Gold", "#CFA38D", "Compact 36 mm case", "Aluminium and silicone"],
+  ["market-tote", "Market Tote", "bags", "totes", 2199, "A structured natural canvas tote bag with a rectangular base, two long dark brown leather handles and an open top.", "Natural", "#DDD1BC", "16 litre capacity", "Canvas and leather"],
+  ["transit-messenger", "Transit Messenger", "bags", "messenger-bags", 3799, "A charcoal canvas messenger bag with a broad front flap, two metal clasp closures and an adjustable shoulder strap.", "Charcoal", "#454542", "Padded laptop compartment", "Waxed canvas"],
+  ["petal-flat", "Petal Flat", "footwear", "flats", 2799, "A black leather ballet flat with a rounded toe, low heel and a small matching bow over the toe.", "Black", "#242321", "Flexible cushioned sole", "Leather and rubber"],
+  ["city-derby", "City Derby", "footwear", "formal-shoes", 5499, "A dark brown polished leather derby shoe with open lacing, a rounded toe and a low stacked heel.", "Umber", "#654B39", "Cushioned leather footbed", "Leather and rubber"],
+  ["arc-vase", "Arc Vase", "home", "decor", 1599, "A matte cream ceramic vase with a rounded belly, narrow opening and fine vertical fluting.", "Cream", "#E7DECD", "22 cm tall", "Glazed stoneware"],
+  ["linen-cushion", "Linen Cushion", "home", "soft-furnishings", 1299, "A square olive linen cushion with softly rounded corners, a concealed zip and a plump removable insert.", "Olive", "#737660", "45 x 45 cm", "Linen cover and fibre insert"],
+  ["fold-desk-lamp", "Fold Desk Lamp", "home", "lighting", 4299, "A compact sand desk lamp with a slim light bar, articulated arm and low circular base. A quiet sculptural shape for your workspace.", "Sand", "#D9CFC1", "Articulated folding arm", "Powder-coated aluminium"],
+  ["pebble-speaker", "Pebble Speaker", "electronics", "speakers", 3499, "A compact oval speaker with a warm grey woven grille, olive shell and braided carry loop. Tactile details for listening at your desk or on the move.", "Olive", "#737660", "Compact oval silhouette", "Woven textile and silicone"],
+  ["folio-tech-pouch", "Folio Tech Pouch", "bags", "tech-organizers", 2799, "A cognac leather organizer pouch with a wraparound zip, side grab loop and softly divided interior. A place for small daily essentials.", "Cognac", "#9A6543", "Divided organizer interior", "Grained leather and microsuede"],
+] as const;
+
+export const expandedProductSeeds: ProductSeed[] = entries.map(([handle, title, category, type, price, description, colour, swatch, feature, material]) => ({
+  handle, title, category, type, price, description,
+  highlights: [feature, material], specs: [["Material", material], ["Details", feature]],
+  colours: [{ name: colour, swatch }], stock: { default: 24 }, tags: ["new"], added: "2026-11-03",
+  ...(["everyday-polo", "chrono-watch", "city-derby"].includes(handle) ? { audiences: ["men"] as ("men" | "women")[] } : {}),
+  ...(["rib-cardigan", "mira-watch", "petal-flat"].includes(handle) ? { audiences: ["women"] as ("men" | "women")[] } : {}),
+  ...(category === "clothing" ? { option: { name: "Size", values: ["S", "M", "L", "XL"].map((name) => ({ name })) }, sizeGuide: "tops" as const } : {}),
+  ...(category === "footwear" ? { option: { name: "Size", values: (handle === "petal-flat" ? ["UK 3", "UK 4", "UK 5", "UK 6", "UK 7", "UK 8"] : ["UK 6", "UK 7", "UK 8", "UK 9", "UK 10", "UK 11"]).map((name) => ({ name })) } } : {}),
+}));
