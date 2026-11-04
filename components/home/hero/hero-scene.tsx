@@ -2,13 +2,14 @@ import { getImageProps } from "next/image";
 import { formatPrice, getKit } from "@/lib/commerce";
 import { getFrameSources } from "@/lib/frames";
 import { site } from "@/lib/site";
+import staticImageSource from "@/lib/static-image-source";
 import { HeroStage } from "./hero-stage";
 
 /** Server part of the hero: gathers data and image sources for the client stage. */
 export function HeroScene() {
   const kit = getKit();
 
-  const common = { alt: "", sizes: "100vw", quality: 75 } as const;
+  const common = { alt: "", sizes: "100vw", quality: 75, loader: staticImageSource } as const;
   const {
     props: { srcSet: portrait },
   } = getImageProps({ ...common, src: "/hero/background-mobile.webp", width: 1080, height: 1920 });

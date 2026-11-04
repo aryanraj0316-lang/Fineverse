@@ -136,10 +136,17 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
             signal.addEventListener("abort", resume, { once: true });
           });
           if (signal.aborted) return;
+          // Follow fast scrolls instead of finishing distant frames first.
+          const wanted = Math.round(progress * (s.count - 1));
+          queue.sort((a, b) => Math.abs(a - wanted) - Math.abs(b - wanted));
           const i = queue.shift()!;
           try {
-            const res = await fetch(url(s, i), { signal });
-            const bitmap = await createImageBitmap(await res.blob());
+            const res = await fetch(url(s, i), { signal, cache: "force-cache" });
+            if (!res.ok) continue;
+            // Decode to the actual display budget rather than retaining every
+            // full-resolution frame (96 desktop originals cost about 280 MB).
+            const decodeWidth = Math.min(window.innerWidth < 800 ? 480 : 640, Math.max(1, canvas.width));
+            const bitmap = await createImageBitmap(await res.blob(), { resizeWidth: decodeWidth, resizeQuality: "medium" });
             if (signal.aborted) {
               bitmap.close();
               return;
@@ -153,7 +160,7 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
           }
         }
       };
-      await Promise.all(Array.from({ length: 4 }, worker));
+      await Promise.all(Array.from({ length: 2 }, worker));
     };
 
     const reset = () => {
@@ -172,9 +179,13 @@ export const ScrollFrames = forwardRef<ScrollFramesHandle, Props>(function Scrol
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.max(1, Math.round(rect.width * dpr));
-      canvas.height = Math.max(1, Math.round(rect.height * dpr));
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const width = Math.max(1, Math.round(rect.width * dpr));
+      const height = Math.max(1, Math.round(rect.height * dpr));
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+      }
       const next = pickSet();
       if (next !== set) {
         set = next;
